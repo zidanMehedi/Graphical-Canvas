@@ -3,6 +3,11 @@
 #include<math.h>
 # define PI           3.14159265358979323846
 
+
+void Idle()
+{
+	glutPostRedisplay();
+}
 void display() {
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -19,7 +24,6 @@ void display() {
 	GLfloat x=-.7f; GLfloat y=.75f; GLfloat radius =.15f;
 	int triangleAmount = 100; //# of triangles used to draw circle
 
-	//GLfloat radius = 0.8f; //radius
 	GLfloat twicePi = 2.0f * PI;
 
 	glBegin(GL_TRIANGLE_FAN);			//sun
@@ -57,7 +61,7 @@ void display() {
 	glVertex2f(-.75,.21);
     glEnd();
 
-	glBegin(GL_QUADS);		//treeWood
+	/*glBegin(GL_QUADS);		//treeWood
     glColor3ub(61, 2, 0);
     glVertex2f(-.77,0);
 	glVertex2f(-.77,0.23);
@@ -81,7 +85,7 @@ void display() {
 	glVertex2f(-.85,.28);
 	glVertex2f(-.8,.23);
 	glVertex2f(-.75,.21);
-    glEnd();
+    glEnd();*/
 
 	glBegin(GL_QUADS);		//treeWood
     glColor3ub(61, 2, 0);
@@ -204,7 +208,6 @@ void display() {
     glVertex2f(.31,-0.1);
 	glVertex2f(.283,-.04);
 	glVertex2f(.26,-0.1);
-	//glVertex2f(.26,-0.35);
     glEnd();
 
 	glBegin(GL_QUADS);		//barriers
@@ -276,7 +279,6 @@ void display() {
     glVertex2f(.31,-0.1);
 	glVertex2f(.283,-.04);
 	glVertex2f(.26,-0.1);
-	//glVertex2f(.26,-0.35);
     glEnd();
 
 	glBegin(GL_QUADS);		//barriers
@@ -313,7 +315,6 @@ void display() {
     glVertex2f(.31,-0.1);
 	glVertex2f(.283,-.04);
 	glVertex2f(.26,-0.1);
-	//glVertex2f(.26,-0.35);
     glEnd();
 
 	glBegin(GL_QUADS);		//barriers
@@ -426,7 +427,6 @@ void display() {
     glVertex2f(.31,-0.1);
 	glVertex2f(.283,-.04);
 	glVertex2f(.26,-0.1);
-	//glVertex2f(.26,-0.35);
     glEnd();
 
 	glTranslated(-.21,0,0);
@@ -464,7 +464,6 @@ void display() {
     glVertex2f(.31,-0.1);
 	glVertex2f(.283,-.04);
 	glVertex2f(.26,-0.1);
-	//glVertex2f(.26,-0.35);
     glEnd();
 
 	glTranslated(-.21,0,0);
@@ -507,26 +506,10 @@ void display() {
     glEnd();
 	glLoadIdentity();
 
-	glBegin(GL_QUADS);		//railLine1
-    glColor3ub(0, 0, 0);
-    glVertex2f(1,-0.52);
-	glVertex2f(-1,-0.52);
-	glVertex2f(-1,-0.55);
-	glVertex2f(1,-0.55);
-    glEnd();
+	//-----Train Line-----
 
-	glTranslated(0,-.28,0);
-	glBegin(GL_QUADS);		//railLine2
-    glColor3ub(0, 0, 0);
-    glVertex2f(1,-0.52);
-	glVertex2f(-1,-0.52);
-	glVertex2f(-1,-0.55);
-	glVertex2f(1,-0.55);
-    glEnd();
-	glLoadIdentity();
-
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
+	glBegin(GL_QUADS);		//lineJoints
+    glColor3ub(191, 128, 38);
     glVertex2f(-.8,-0.82);
 	glVertex2f(-.7,-0.53);
 	glVertex2f(-.8,-0.53);
@@ -534,89 +517,80 @@ void display() {
     glEnd();
 
 	glTranslated(.2,0,0);
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
-    glVertex2f(-.8,-0.82);
-	glVertex2f(-.7,-0.53);
-	glVertex2f(-.8,-0.53);
-	glVertex2f(-.9,-0.82);
-    glEnd();
-	//glLoadIdentity();
-
-	glTranslated(.2,0,0);
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
-    glVertex2f(-.8,-0.82);
-	glVertex2f(-.7,-0.53);
-	glVertex2f(-.8,-0.53);
-	glVertex2f(-.9,-0.82);
-    glEnd();
-	//glLoadIdentity();
-
-	glTranslated(.2,0,0);
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
-    glVertex2f(-.8,-0.82);
-	glVertex2f(-.7,-0.53);
-	glVertex2f(-.8,-0.53);
-	glVertex2f(-.9,-0.82);
-    glEnd();
-	//glLoadIdentity();
-
-	glTranslated(.2,0,0);
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
+	glBegin(GL_QUADS);		//lineJoints
+    glColor3ub(191, 128, 38);
     glVertex2f(-.8,-0.82);
 	glVertex2f(-.7,-0.53);
 	glVertex2f(-.8,-0.53);
 	glVertex2f(-.9,-0.82);
     glEnd();
 
-	//glLoadIdentity();
-
 	glTranslated(.2,0,0);
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
+	glBegin(GL_QUADS);		////lineJoints
+    glColor3ub(191, 128, 38);
     glVertex2f(-.8,-0.82);
 	glVertex2f(-.7,-0.53);
 	glVertex2f(-.8,-0.53);
 	glVertex2f(-.9,-0.82);
     glEnd();
-	//glLoadIdentity();
 
 	glTranslated(.2,0,0);
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
+	glBegin(GL_QUADS);		////lineJoints
+    glColor3ub(191, 128, 38);
     glVertex2f(-.8,-0.82);
 	glVertex2f(-.7,-0.53);
 	glVertex2f(-.8,-0.53);
 	glVertex2f(-.9,-0.82);
     glEnd();
-	//glLoadIdentity();
 
 	glTranslated(.2,0,0);
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
+	glBegin(GL_QUADS);		////lineJoints
+    glColor3ub(191, 128, 38);
     glVertex2f(-.8,-0.82);
 	glVertex2f(-.7,-0.53);
 	glVertex2f(-.8,-0.53);
 	glVertex2f(-.9,-0.82);
     glEnd();
-	//glLoadIdentity();
 
 	glTranslated(.2,0,0);
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
+	glBegin(GL_QUADS);		////lineJoints
+    glColor3ub(141, 94, 26);
     glVertex2f(-.8,-0.82);
 	glVertex2f(-.7,-0.53);
 	glVertex2f(-.8,-0.53);
 	glVertex2f(-.9,-0.82);
     glEnd();
-	//glLoadIdentity();
 
 	glTranslated(.2,0,0);
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
+	glBegin(GL_QUADS);		////lineJoints
+    glColor3ub(141, 94, 26);
+    glVertex2f(-.8,-0.82);
+	glVertex2f(-.7,-0.53);
+	glVertex2f(-.8,-0.53);
+	glVertex2f(-.9,-0.82);
+    glEnd();
+
+	glTranslated(.2,0,0);
+	glBegin(GL_QUADS);		////lineJoints
+    glColor3ub(141, 94, 26);
+    glVertex2f(-.8,-0.82);
+	glVertex2f(-.7,-0.53);
+	glVertex2f(-.8,-0.53);
+	glVertex2f(-.9,-0.82);
+    glEnd();
+
+	glTranslated(.2,0,0);
+	glBegin(GL_QUADS);		////lineJoints
+    glColor3ub(141, 94, 26);
+    glVertex2f(-.8,-0.82);
+	glVertex2f(-.7,-0.53);
+	glVertex2f(-.8,-0.53);
+	glVertex2f(-.9,-0.82);
+    glEnd();
+
+	glTranslated(.2,0,0);
+	glBegin(GL_QUADS);		////lineJoints
+    glColor3ub(141, 94, 26);
     glVertex2f(-.8,-0.82);
 	glVertex2f(-.7,-0.53);
 	glVertex2f(-.8,-0.53);
@@ -625,8 +599,8 @@ void display() {
 	glLoadIdentity();
 
 	glTranslated(-.2,0,0);
-	glBegin(GL_QUADS);		//road
-    glColor3ub(0, 0, 0);
+	glBegin(GL_QUADS);		////lineJoints
+    glColor3ub(141, 94, 26);
     glVertex2f(-.8,-0.82);
 	glVertex2f(-.7,-0.53);
 	glVertex2f(-.8,-0.53);
@@ -634,88 +608,27 @@ void display() {
     glEnd();
 	glLoadIdentity();
 
-	glBegin(GL_QUADS);		//station room
-    glColor3ub(122, 0, 0);
-    glVertex2f(0.5,0);
-	glVertex2f(0.5,0.4);
-	glVertex2f(-0.4,0.4);
-	glVertex2f(-0.4,0);
+	glBegin(GL_QUADS);		//railLine1
+    glColor3ub(150, 150, 150);
+    glVertex2f(1,-0.52);
+	glVertex2f(-1,-0.52);
+	glVertex2f(-1,-0.55);
+	glVertex2f(1,-0.55);
     glEnd();
 
-	glBegin(GL_QUADS);		//station room roof
-    glColor3ub(43, 0, 0);
-    glVertex2f(0.4,0.4);
-	glVertex2f(0.4,0.6);
-	glVertex2f(-0.3,0.6);
-	glVertex2f(-.3,0.4);
+	glTranslated(0,-.28,0);
+	glBegin(GL_QUADS);		//railLine2
+    glColor3ub(150, 150, 150);
+    glVertex2f(1,-0.52);
+	glVertex2f(-1,-0.52);
+	glVertex2f(-1,-0.55);
+	glVertex2f(1,-0.55);
     glEnd();
+	glLoadIdentity();
 
-	glBegin(GL_QUADS);		//station room roof
-    glColor3ub(165, 165, 165);
-    glVertex2f(0.42,0.6);
-	glVertex2f(0.42,0.62);
-	glVertex2f(-0.32,0.62);
-	glVertex2f(-.32,0.6);
-    glEnd();
-
-	glBegin(GL_QUADS);		//station room window1
-    glColor3ub(224, 199, 0);
-    glVertex2f(0.4,0.1);
-	glVertex2f(0.4,.3);
-	glVertex2f(0.2,0.3);
-	glVertex2f(0.2,0.1);
-    glEnd();
-
-	 glBegin(GL_LINES);
-     glColor3ub(0,0,0);
-     glVertex2f(0.3,0.1);
-     glVertex2f(0.3,0.3);
-	 glVertex2f(0.2,.2);
-     glVertex2f(0.4,.2);
-     glEnd();
-
-	glBegin(GL_QUADS);		//station room window2
-    glColor3ub(224, 199, 0);
-    glVertex2f(-0.1,0.1);
-	glVertex2f(-0.1,0.3);
-	glVertex2f(-0.3,0.3);
-	glVertex2f(-.3,0.1);
-    glEnd();
-
-	 glBegin(GL_LINES);
-     glColor3ub(0,0,0);
-     glVertex2f(-0.2,0.1);
-     glVertex2f(-0.2,0.3);
-	 glVertex2f(-0.1,.2);
-     glVertex2f(-0.3,.2);
-     glEnd();
-
-	glBegin(GL_QUADS);		//station room door
-    glColor3ub(43, 0, 0);
-    glVertex2f(0.15,0);
-	glVertex2f(0.15,.3);
-	glVertex2f(-.05,0.3);
-	glVertex2f(-0.05,0);
-    glEnd();
-
-	glBegin(GL_QUADS);		
-    glColor3ub(43, 0, 0);
-    glVertex2f(0.15,0);
-	glVertex2f(0.15,.3);
-	glVertex2f(-.05,0.3);
-	glVertex2f(-0.05,0);
-    glEnd();
-
-	/*glBegin(GL_LINES);
-     glColor3ub(0,0,0);
-     glVertex2f(0.05,0.0);
-     glVertex2f(0.05,0.3);
-     glEnd();*/
-
-	//glTranslated(-.07,0,0);
 
 	glTranslated(-.07,-.18,0);
-	glBegin(GL_QUADS);  //signal body
+	glBegin(GL_QUADS);			//signal body
 	glColor3ub(160,160,160);
 	glVertex2f(.95,.1);
 	glVertex2f(.95,.5);
@@ -723,10 +636,10 @@ void display() {
 	glVertex2f(.8,.1);
 	glEnd();
 
+     //------Signal light------
+
 	GLfloat x1=.87f; GLfloat y1=.2f; GLfloat radius1 =.05f;
 	int triangleAmount1 = 100; 
-
-//--------------------------Signal light--------------------
 
 	glBegin(GL_TRIANGLE_FAN);
 	glColor3ub(0,204,0);
@@ -773,8 +686,6 @@ void display() {
 		}
 	glEnd();
 
-	//glLoadIdentity();
-
 	glBegin(GL_QUADS);  //signal  stand
 	glColor3ub(0,0,0);
 	glVertex2f(.89,-.32);
@@ -787,8 +698,28 @@ void display() {
 
 	//-------Train-------
 
+	glBegin(GL_QUADS); //Train Body Joint
+	glColor3ub(43, 0, 0);
+	glVertex2f(0.01,-.62);
+	glVertex2f(0.01,-.57);
+	glVertex2f(-.1,-.57);
+	glVertex2f(-.1,-.62);
+	glEnd();
+
+	glTranslated(-.8,0,0); ////Train Body Joint
 	glBegin(GL_QUADS);
-	glColor3ub(53, 69, 158);
+	glColor3ub(43, 0, 0);
+	glVertex2f(0.01,-.62);
+	glVertex2f(0.01,-.57);
+	glVertex2f(-.1,-.57);
+	glVertex2f(-.1,-.62);
+	glEnd();
+	glLoadIdentity();
+
+	//----- Train Bodies-----
+
+	glBegin(GL_QUADS);
+	glColor3ub(0, 9, 30);
 	glVertex2f(.89,-.68);
 	glVertex2f(.79,-.42);
 	glVertex2f(0,-.42);
@@ -796,7 +727,7 @@ void display() {
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3ub(255, 0, 0);
+	glColor3ub(122, 0, 0);
 	glVertex2f(.79,-.42);
 	glVertex2f(.79,-.19);
 	glVertex2f(.49,-.19);
@@ -804,20 +735,50 @@ void display() {
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3ub(45, 185, 153);
+	glColor3ub(0, 9, 30);
+	glVertex2f(.77,-.42);
+	glVertex2f(.77,-.19);
+	glVertex2f(.74,-.19);
+	glVertex2f(.74,-.42);
+	glEnd();
+
+	glTranslated(-.18,0,0);
+	glBegin(GL_QUADS);
+	glColor3ub(0, 9, 30);
+	glVertex2f(.77,-.42);
+	glVertex2f(.77,-.19);
+	glVertex2f(.74,-.19);
+	glVertex2f(.74,-.42);
+	glEnd();
+	glLoadIdentity();
+
+	glTranslated(-.225,0,0);
+	glBegin(GL_QUADS);
+	glColor3ub(0, 9, 30);
+	glVertex2f(.77,-.42);
+	glVertex2f(.77,-.19);
+	glVertex2f(.74,-.19);
+	glVertex2f(.74,-.42);
+	glEnd();
+	glLoadIdentity();
+
+	glBegin(GL_QUADS);
+	glColor3ub(28, 90, 86);
 	glVertex2f(.49,-.42);
 	glVertex2f(.49,-.0);
 	glVertex2f(.02,-.0);
 	glVertex2f(.02,-.42);
 	glEnd();
 
+
 	glBegin(GL_QUADS);
-	glColor3ub(53, 69, 158);
+	glColor3ub(0, 9, 30);
 	glVertex2f(.51,.0);
 	glVertex2f(.51,0.03);
 	glVertex2f(.0,0.03);
 	glVertex2f(.0,.0);
 	glEnd();
+
 
 	glBegin(GL_QUADS);
 	glColor3ub(0,0,0);
@@ -828,14 +789,14 @@ void display() {
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3ub(53, 69, 158);
+	glColor3ub(0, 9, 30);
 	glVertex2f(.74,.0);
 	glVertex2f(.74,0.03);
 	glVertex2f(.57,0.03);
 	glVertex2f(.57,.0);
 	glEnd();
 
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS); //Train Light
 	glColor3ub(255, 243, 0);
 	glVertex2f(.83,-.35);
 	glVertex2f(.83,-0.24);
@@ -843,8 +804,8 @@ void display() {
 	glVertex2f(.79,-.35);
 	glEnd();
 
-	glBegin(GL_TRIANGLES);
-	glColor3ub(53, 69, 158);
+	glBegin(GL_TRIANGLES); //Train Light Shelter
+	glColor3ub(0, 9, 30);
 	glVertex2f(.89,-.19);
 	glVertex2f(.79,-.19);
 	glVertex2f(.79,-.27);
@@ -852,13 +813,9 @@ void display() {
 
 	GLfloat x4=.65f; GLfloat y4=-.7f; GLfloat radius4 =.13f;
 	int triangleAmount4 = 100; //# of triangles used to draw circle
-
-	//GLfloat radius = 0.8f; //radius
-	//GLfloat twicePi = 2.0f * PI;
-
 	
-	glBegin(GL_TRIANGLE_FAN);			//sun
-	glColor3ub(181, 181, 181);
+	glBegin(GL_TRIANGLE_FAN);			//tarinWheel
+	glColor3ub(62, 61, 59);
 		glVertex2f(x4, y4); // center of circle
 		for(int i = 0; i <= triangleAmount4;i++) {
 			glVertex2f(
@@ -872,12 +829,8 @@ void display() {
 
 	GLfloat x5=.20f;
 
-	//GLfloat radius = 0.8f; //radius
-	//GLfloat twicePi = 2.0f * PI;
-
-	
-	glBegin(GL_TRIANGLE_FAN);			//sun
-	glColor3ub(181, 181, 181);
+	glBegin(GL_TRIANGLE_FAN);			//tarinWheel
+	glColor3ub(62, 61, 59);
 		glVertex2f(x5, y4); // center of circle
 		for(int i = 0; i <= triangleAmount4;i++) {
 			glVertex2f(
@@ -888,7 +841,7 @@ void display() {
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3ub(29, 174, 134);
+	glColor3ub(28, 90, 86); //Train Body
 	glVertex2f(-.10,-.68);
 	glVertex2f(-.10,-0.1);
 	glVertex2f(-.79,-.1);
@@ -897,23 +850,21 @@ void display() {
 			 
 	glFlush();
 
-	glTranslated(-.8,0,0);
+	glTranslated(-.8,0,0); //Train Body
 	glBegin(GL_QUADS);
-	glColor3ub(29, 174, 134);
+	glColor3ub(28, 90, 86);
 	glVertex2f(-.10,-.68);
 	glVertex2f(-.10,-0.1);
 	glVertex2f(-.79,-.1);
 	glVertex2f(-.79,-.68);
 	glEnd();
 
+
 	GLfloat x6=.53f;
 
-	//GLfloat radius = 0.8f; //radius
-	//GLfloat twicePi = 2.0f * PI;
-
 	
-	glBegin(GL_TRIANGLE_FAN);			//sun
-	glColor3ub(181, 181, 181);
+	glBegin(GL_TRIANGLE_FAN);			//tarinWheel
+	glColor3ub(62, 61, 59);
 		glVertex2f(x6, y4); // center of circle
 		for(int i = 0; i <= triangleAmount4;i++) {
 			glVertex2f(
@@ -925,12 +876,8 @@ void display() {
 
 	GLfloat x7=.18f;
 
-	//GLfloat radius = 0.8f; //radius
-	//GLfloat twicePi = 2.0f * PI;
-
-	
-	glBegin(GL_TRIANGLE_FAN);			//sun
-	glColor3ub(181, 181, 181);
+	glBegin(GL_TRIANGLE_FAN);			//tarinWheel
+	glColor3ub(62, 61, 59);
 		glVertex2f(x7, y4); // center of circle
 		for(int i = 0; i <= triangleAmount4;i++) {
 			glVertex2f(
@@ -942,12 +889,8 @@ void display() {
 
 	GLfloat x8=-.27f;
 
-	//GLfloat radius = 0.8f; //radius
-	//GLfloat twicePi = 2.0f * PI;
-
-	
-	glBegin(GL_TRIANGLE_FAN);			//sun
-	glColor3ub(181, 181, 181);
+	glBegin(GL_TRIANGLE_FAN);			//tarinWheel
+	glColor3ub(62, 61, 59);
 		glVertex2f(x8, y4); // center of circle
 		for(int i = 0; i <= triangleAmount4;i++) {
 			glVertex2f(
@@ -956,15 +899,331 @@ void display() {
 			);
 		}
 	glEnd();
-			 
+
+	//-----Train Windows-----
+
+	glScalef(1.3,1,0);
+	glTranslated(-.15,-.53,0);
+	glBegin(GL_QUADS);
+    glColor3ub(224, 199, 0);
+    glVertex2f(0.4,0.1);
+	glVertex2f(0.4,.3);
+	glVertex2f(0.2,0.3);
+	glVertex2f(0.2,0.1);
+    glEnd();
+
+	glTranslated(.25,0,0);
+	glBegin(GL_QUADS);
+    glColor3ub(224, 199, 0);
+    glVertex2f(0.4,0.1);
+	glVertex2f(0.4,.3);
+	glVertex2f(0.2,0.3);
+	glVertex2f(0.2,0.1);
+    glEnd();
+	glLoadIdentity();
+
+	glScalef(1.3,1,0);
+	glTranslated(-1.13,-.53,0);
+	glBegin(GL_QUADS);
+    glColor3ub(224, 199, 0);
+    glVertex2f(0.4,0.1);
+	glVertex2f(0.4,.3);
+	glVertex2f(0.2,0.3);
+	glVertex2f(0.2,0.1);
+    glEnd();
+	glLoadIdentity();
+
+	glScalef(1.94,1.5,0);
+	glTranslated(-.17,-.34,0);
+	glBegin(GL_QUADS);
+    glColor3ub(224, 199, 0);
+    glVertex2f(0.4,0.1);
+	glVertex2f(0.4,.3);
+	glVertex2f(0.2,0.3);
+	glVertex2f(0.2,0.1);
+    glEnd();
+	glLoadIdentity();
+
+	//-----Train Window Grill-----
+
+	glScalef(1.3,1,0);
+	glTranslated(-.516,-.59,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+
+	glTranslated(0,.056,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+    
+	glTranslated(0,.056,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+	glLoadIdentity();
+
+	glScalef(1.94,1.5,0);
+	glTranslated(-.17,-.34,0);
+	glBegin(GL_QUADS);
+    glColor3ub(224, 199, 0);
+    glVertex2f(0.4,0.1);
+	glVertex2f(0.4,.3);
+	glVertex2f(0.2,0.3);
+	glVertex2f(0.2,0.1);
+    glEnd();
+	glLoadIdentity();
+
+	glScalef(1.304,1,0);
+	glTranslated(-.762,-.59,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+	glLoadIdentity();
+
+	glScalef(1.304,1,0);
+	glTranslated(-.762,-.53,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+    glLoadIdentity();
+
+	glScalef(1.304,1,0);
+	glTranslated(-.762,-.47,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+    glLoadIdentity();
+
+	glScalef(1.304,1,0);
+	glTranslated(-1.125,-.47,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+    glLoadIdentity();
+
+	glScalef(1.304,1,0);
+	glTranslated(-1.125,-.53,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+    glLoadIdentity();
+
+	glScalef(1.304,1,0);
+	glTranslated(-1.125,-.59,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+    glLoadIdentity();
+
+	glScalef(1.922,1.5,0);
+	glTranslated(-.167,-.34,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+	glLoadIdentity();
+
+	glScalef(1.922,1.5,0);
+	glTranslated(-.167,-.38,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+	glLoadIdentity();
+
+	glScalef(1.922,1.5,0);
+	glTranslated(-.167,-.415,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+	glLoadIdentity();
+
+	glScalef(1.92,1.5,0);
+	glTranslated(-.167,-.305,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+
+	glScalef(1,1,0);
+	glTranslated(0,.035,0);
+	glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+	glVertex2f(0.2,.2);
+    glVertex2f(0.4,.2);
+    glEnd();
+	glLoadIdentity();
+
+	
+
+	glBegin(GL_QUADS);		//treeWood
+    glColor3ub(255, 2, 0);
+    glVertex2f(-.45,0);
+	glVertex2f(-.48,0.48);
+    glVertex2f(-.51,.48);
+	glVertex2f(-.55,0);
+    glEnd();
+
+	/*GLfloat i = 0;
+	glPushMatrix();
+	glRotatef(i,0.0,0.0,1.0);*/
+	
+	glBegin(GL_TRIANGLES);		//treeWood
+    glColor3ub(229, 229, 229);
+    glVertex2f(-.495,.5);
+	glVertex2f(-.45,.86);
+    glVertex2f(-.56,.86);
+    glEnd();
+
+	glBegin(GL_TRIANGLES);		//treeWood
+    glColor3ub(229, 229, 229);
+    glVertex2f(-.495,.5);
+	glVertex2f(-.85,.55);
+    glVertex2f(-.85,.45);
+    glEnd();
+
+	glBegin(GL_TRIANGLES);		//treeWood
+    glColor3ub(229, 229, 229);
+    glVertex2f(-.495,.5);
+	glVertex2f(-.45,.12);
+    glVertex2f(-.55,0.12);
+    glEnd();
+
+	glBegin(GL_TRIANGLES);		//treeWood
+    glColor3ub(229, 229, 229);
+    glVertex2f(-.495,.5);
+	glVertex2f(-.13,.55);
+    glVertex2f(-.13,.45);
+    glEnd();
+
+	//glPopMatrix();
+	//i+=.1;
+
+	GLfloat x9=-.496f; GLfloat y9=.5f; GLfloat radius9 =.05f;
+	int triangleAmount9 = 100; //# of triangles used to draw circle
+
+	//GLfloat twicePi = 2.0f * PI;
+
+	glBegin(GL_TRIANGLE_FAN);			//sun
+	glColor3ub(225, 92, 64);
+		glVertex2f(x9, y9); // center of circle
+		for(int i = 0; i <= triangleAmount9;i++) {
+			glVertex2f(
+		            x9 + (radius9 * cos(i *  twicePi / triangleAmount9)),
+			    y9 + (radius9 * sin(i * twicePi / triangleAmount9))
+			);
+		}
+	glEnd();
+
+	
+	glBegin(GL_QUADS);		//station room
+    glColor3ub(122, 0, 0);
+    glVertex2f(0.5,0);
+	glVertex2f(0.5,0.4);
+	glVertex2f(-0.4,0.4);
+	glVertex2f(-0.4,0);
+    glEnd();
+
+	glBegin(GL_QUADS);		//station room roof
+    glColor3ub(43, 0, 0);
+    glVertex2f(0.4,0.4);
+	glVertex2f(0.4,0.6);
+	glVertex2f(-0.3,0.6);
+	glVertex2f(-.3,0.4);
+    glEnd();
+
+	glBegin(GL_QUADS);		//station room roof
+    glColor3ub(165, 165, 165);
+    glVertex2f(0.42,0.6);
+	glVertex2f(0.42,0.62);
+	glVertex2f(-0.32,0.62);
+	glVertex2f(-.32,0.6);
+    glEnd();
+
+	glBegin(GL_QUADS);		//station room window1
+    glColor3ub(224, 199, 0);
+    glVertex2f(0.4,0.1);
+	glVertex2f(0.4,.3);
+	glVertex2f(0.2,0.3);
+	glVertex2f(0.2,0.1);
+    glEnd();
+
+	 glBegin(GL_LINES); //station window1 grill
+     glColor3ub(0,0,0);
+     glVertex2f(0.3,0.1);
+     glVertex2f(0.3,0.3);
+	 glVertex2f(0.2,.2);
+     glVertex2f(0.4,.2);
+     glEnd();
+
+	glBegin(GL_QUADS);		//station room window2
+    glColor3ub(224, 199, 0);
+    glVertex2f(-0.1,0.1);
+	glVertex2f(-0.1,0.3);
+	glVertex2f(-0.3,0.3);
+	glVertex2f(-.3,0.1);
+    glEnd();
+
+	 glBegin(GL_LINES); //station window2 grill
+     glColor3ub(0,0,0);
+     glVertex2f(-0.2,0.1);
+     glVertex2f(-0.2,0.3);
+	 glVertex2f(-0.1,.2);
+     glVertex2f(-0.3,.2);
+     glEnd();
+
+	glBegin(GL_QUADS);		//station room door
+    glColor3ub(43, 0, 0);
+    glVertex2f(0.15,0);
+	glVertex2f(0.15,.3);
+	glVertex2f(-.05,0.3);
+	glVertex2f(-0.05,0);
+    glEnd();
+
+
+	/*glBegin(GL_QUADS);		//treeWood
+    glColor3ub(61, 2, 0);
+    glVertex2f(-.77,0);
+	glVertex2f(-.77,0.23);
+    glVertex2f(-.73,.23);
+	glVertex2f(-.73,0);
+    glEnd();*/
+
+
+
 	glFlush();
 }
-
+//-----Main Function Start-----
 int main(int argc, char** argv) {
 	glutInit(&argc, argv);
 	glutCreateWindow("Canvas");
 	glutInitWindowSize(640, 480);
 	glutDisplayFunc(display);
+	//glutIdleFunc(Idle);
 	glutMainLoop();
 	return 0;
 }
